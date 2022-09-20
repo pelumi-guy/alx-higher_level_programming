@@ -1,0 +1,4 @@
+#!/bin/bash
+dos2unix $1
+#echo $2
+git add . && git commit -m "$2" && git push
