@@ -1,8 +1,9 @@
 # Python Programming
 <p><img src="./c-python-meme.jpg"/></p>
-```
-The Zen of Python, by Tim Peters
 
+```
+The Zen of Python, by Tim Peters  
+  
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
