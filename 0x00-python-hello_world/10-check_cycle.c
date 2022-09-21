@@ -1,31 +1,5 @@
 #include "lists.h"
 
-/**
- * _realloc - a function to reallocate memory is buffer array gets filled
- * Description:
- * @bufsize: size of buffer array
- * @past: buffer array
- * Return: new buffer array
- */
-listint_t **_realloc(int *bufsize, listint_t **past)
-{
-	int n;
-	listint_t **temp;
-
-	(*bufsize) *= 2;
-	temp = malloc(sizeof(listint_t *) * (*bufsize));
-	if (temp == NULL)
-		return (NULL);
-
-	for (n = 0; past[n]; n++)
-		temp[n] = past[n];
-	temp[n] = NULL;
-
-	free(past);
-	past = temp;
-	return (past);
-}
-
 
 /**
  * check_cycle - a function that checks for a cycle in a linked list
@@ -36,36 +10,23 @@ listint_t **_realloc(int *bufsize, listint_t **past)
 
 int check_cycle(listint_t *list)
 {
-	int i, j, bufsize = 1;
-	listint_t **past = malloc(sizeof(listint_t *) * bufsize);
-	listint_t *current;
+	listint_t *slow, *fast;
 
-	if (past == NULL)
-		return (-1);
+	if (list == NULL || list->next == NULL)
+		return (0);
 
-	current = list;
-	for (i = 0; current; i++)
+	slow = list->next;
+	fast = list->next->next;
+
+	while (slow && fast && fast->next)
 	{
-		past[i] = current;
-		past[i + 1] = NULL;
-		for (j = 0; past[j]; j++)
-		{
-			if (current->next == past[j])
-			{
-				/* printf("bufsize is: %i\n--------------------\n", bufsize); */
-				free(past);
-				return (1);
-			}
-		}
-		current = current->next;
-		if ((i + 2) > bufsize)
-		{
-			past = _realloc(&bufsize, past);
-			if (past == NULL)
-				return (-1);
-		}
+		if (slow == fast)
+			return (1);
+
+		slow = slow->next;
+		fast = fast->next->next;
 	}
-	/* printf("bufsize is: %i\n--------------------\n", bufsize); */
-	free(past);
+
 	return (0);
 }
+
