@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-from ast import operator
-from xml.etree.ElementInclude import include
 from calculator_1 import add, sub, mul, div
 from sys import argv, exit
 
