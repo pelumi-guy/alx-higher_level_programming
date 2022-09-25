@@ -1,2 +1,5 @@
 #'main' test files
 *main.py
+
+#compiled modules
+__pycache__
