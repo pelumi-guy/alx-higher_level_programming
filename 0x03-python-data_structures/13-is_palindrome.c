@@ -36,11 +36,11 @@ int *_realloc(int *bufsize, int *keep)
 int is_palindrome(listint_t **head)
 {
 
-	int i, j, len, bufsize = 1;
+	int i, j, len, bufsize = 10;
 	int *keep = malloc(sizeof(int) * bufsize);
 	listint_t *current;
 
-	if (head == NULL || *head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
 	current = *head;
