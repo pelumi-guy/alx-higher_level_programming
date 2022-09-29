@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-from functools import reduce
-
-
 def weight_average(my_list=[]):
-    numerator = reduce(lambda a, b: a + b,
-                       list(map(lambda x: reduce(lambda a, b: a * b, x),
-                            my_list)))
-    denominator = reduce(lambda a, b: a + b,
-                         list(map(lambda x: x[1], my_list)))
-    return numerator / denominator
+    if my_list and len(my_list):
+        num = 0
+        denom = 0
+        for tup in my_list:
+            num += (tup[0] * tup[1])
+            denom += (tup[1])
+        return (num/denom)
+    return 0
