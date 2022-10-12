@@ -1,36 +1,38 @@
 #!/usr/bin/python3
-"""defines a class Square instantiated with a private size variable"""
+"""My square module"""
 
 
 class Square:
-    """a square object"""
+    """defines a square"""
+
     def __init__(self, size=0, position=(0, 0)):
         """Create a Square
         Args:
             size: length of a side of Square
             position: where the square is (coordinates)
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
-    # Getter method to retrieve private attribute __size
+    def __str__(self):
+        self.my_print()
+
     @property
     def size(self):
-        """retrieves the size of a square"""
+        """"The propery of size as the len of a side of Square
+        Raises:
+            TypeError: if size != int
+            ValueError: if size < 0
+        """
         return self.__size
 
-    # Getter method to update private attribute __size
     @size.setter
     def size(self, value):
-        """updates the size of a square"""
         if not isinstance(value, int):
-            raise TypeError("size must be an integer")
+            raise TypeError('size must be an integer')
         if value < 0:
-            raise ValueError("size must be >= 0")
+            raise ValueError('size must be >= 0')
         self.__size = value
-
-    def area(self):
-        return self.__size * self.__size
 
     @property
     def position(self):
