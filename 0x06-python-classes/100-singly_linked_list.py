@@ -1,0 +1,77 @@
+#!/usr/bin/python3
+class Node:
+    """a class Node that defines a node of a singly linked list
+
+    Attributes:
+        data (int): data contained in node of singly linked list
+        next_node (Node): pointer to next node
+    """
+    def __init__(self, data, next_node=None):
+        """Instantiation with data and next_node"""
+        if not isinstance(data, int):
+            raise TypeError("data must be an integer")
+        self.__data = data
+        self.__next_node = next_node
+
+    @property
+    def data(self):
+        return (self.__data)
+
+    @data.setter
+    def data(self, value):
+        if not isinstance(value, int):
+            raise TypeError("data must be an integer")
+        self.__data = value
+
+    @property
+    def next_node(self):
+        return (self.__next_node)
+
+    @next_node.setter
+    def next_node(self, value):
+        if value is not None and not isinstance(value, Node):
+            raise TypeError("next_node must be a Node object")
+        self.__next_node = value
+
+    def __str__(self):
+        return str(self.__data)
+
+
+class SinglyLinkedList:
+    """a class SinglyLinkedList that defines a singly linked list
+
+    Attributes:
+        head: head node of singly linked list
+        sorted_insert: method to insert node into the list
+    """
+
+    def __init__(self):
+        """simple instantiation"""
+        self.head = None
+
+    def sorted_insert(self, value):
+        """method that inserts a new Node into the correct
+        sorted position in the list (increasing order)"""
+
+        new = Node(value)
+
+        if self.head is None:
+            self.head = new
+            return
+        if value < self.head.data:
+            new.next_node = self.head
+            self.head = new
+            return
+        temp = self.head
+        while temp.next_node and temp.next_node.data < value:
+            temp = temp.next_node
+        new.next_node = temp.next_node
+        temp.next_node = new
+
+    def __str__(self):
+        ret_lst = ""
+        temp = self.head
+        while temp:
+            ret_lst += str(temp.data) + "\n"
+            temp = temp.next_node
+        return ret_lst[:-1]
