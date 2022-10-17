@@ -3,11 +3,8 @@
 
 
 class Rectangle:
-    """a class that defines a rectangle
-    Args:
-        @width: width of rectangle
-        @height: height of rectangle
-    """
+    """a class that defines a rectangle"""
+
     def __init__(self, width=0, height=0):
         """ïnitializes rectangle class
         Args:
@@ -17,8 +14,8 @@ class Rectangle:
             TypeError: if size is not integer
             ValueError: if size is less than zero
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
