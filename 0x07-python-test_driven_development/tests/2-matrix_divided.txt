@@ -1,0 +1,68 @@
+===================================
+        2-matrix_divided.py
+===================================
+
+``matrix_divided(matrix, div)`` a function that divides
+all elements of a matrix.
+
+::
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Matrix values
+==============
+``matrix`` must be a list of lists of integers or floats,
+otherwise raise a ``TypeError`` exception with the message
+``matrix`` must be a matrix (list of lists) of integers/floats
+
+::
+    >>> matrix = [[1, 2, "hello"], [4, 5, 6]]
+
+    >>> matrix_divided(matrix, 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Each row of the ``matrix`` must be of the same size,
+otherwise raise a ``TypeError`` exception with the message
+``Each row of the matrix must have the same size``
+
+::
+    >>> matrix = [[1, 2, 5], [4, 5], [1, 4, 8, 20]]
+
+    >>> matrix_divided(matrix, 5)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+div
+===
+``div`` must be a number (integer or float),
+otherwise raise a ``TypeError`` exception with
+the message ``div must be a number``
+
+::
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+    >>> matrix_divided(matrix, 'testing is fun')
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    >>> matrix_divided(matrix, None)
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+``div`` can’t be equal to 0, otherwise raise a ``ZeroDivisionError``
+exception with the message ``division by zero``
+
+::
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+return
+======
+returns a new matrix with all elements of the matrix
+divided by div, rounded to 2 decimal places
+
+::
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
