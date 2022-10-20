@@ -6,7 +6,7 @@ a function that prints ``My name is <first name> <last name>``
 
 ::
 
-    >>> say_my_name = __import__('3-say_my_name.py').say_my_name
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 string arguments
 ================
@@ -15,18 +15,17 @@ raise a ``TypeError`` exception with the message
 ``first_name must be a string`` or ``last_name must be a string``
 
 ::
-    >>> say_my_name(007, 'bond')
+    >>> say_my_name(7, 'bond')
     Traceback (most recent call last):
     TypeError: first_name must be a string
 
-    >>> say_my_name('james', 007)
+    >>> say_my_name('james', 7)
     Traceback (most recent call last):
     TypeError: last_name must be a string
 
-    >>> say_my_name(6, 007)
+    >>> say_my_name(6, 7)
     Traceback (most recent call last):
     TypeError: first_name must be a string
-
 
 when both arguments are strings
 ::
