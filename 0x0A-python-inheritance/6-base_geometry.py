@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Improve Geometrye"""
+"""Improve Geometry"""
 
 
 class BaseGeometry:
