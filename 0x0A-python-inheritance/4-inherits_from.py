@@ -2,9 +2,6 @@
 """Only sub class of"""
 
 
-from xmlrpc.client import boolean
-
-
 def inherits_from(obj, a_class):
     """a function that checks if object is an
     instance of a given class that inherited
