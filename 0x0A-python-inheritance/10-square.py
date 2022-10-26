@@ -14,4 +14,5 @@ class Square(Rectangle):
             size (int): The size of width and height
             of square.
         """
-        Rectangle.__init__(self, size, size)
+        super().__init__(size, size)
+        self.__size = size
