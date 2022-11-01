@@ -7,8 +7,20 @@ class Square(Rectangle):
     """class that defines a square
     inheriting from Rectangle class"""
 
-    className = 'Square'
     def __init__(self, size, x=0, y=0, id=None):
+        """initializes instance of square"""
+        if type(size) !=  int:
+            raise TypeError('width must be an integer')
+        if size <= 0:
+            raise ValueError('width must be > 0')
+        if type(x) !=  int:
+            raise TypeError('x must be an integer')
+        if x < 0:
+            raise ValueError('x must be >= 0')
+        if type(y) != int:
+            raise TypeError('y must be an integer')
+        if y < 0:
+            raise ValueError('y must be >= 0')
         self.size = size
         self.x = x
         self.y = y
