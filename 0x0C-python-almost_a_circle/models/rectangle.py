@@ -15,7 +15,7 @@ class Rectangle(Base):
             @x: attribute x of rectangle
             @y: attribute y of rectangle
         """
-        if type(width) !=  int:
+        if type(width) != int:
             raise TypeError('width must be an integer')
         if width <= 0:
             raise ValueError('width must be > 0')
@@ -23,7 +23,7 @@ class Rectangle(Base):
             raise TypeError('height must be an integer')
         if height <= 0:
             raise ValueError('height must be > 0')
-        if type(x) !=  int:
+        if type(x) != int:
             raise TypeError('x must be an integer')
         if x < 0:
             raise ValueError('x must be >= 0')
@@ -114,8 +114,7 @@ class Rectangle(Base):
         it returns  a string with format:
         [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}" + \
-                           f" - {self.__width}/{self.__height}"
-
+               f" - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
         """Updates the rectangle assigning

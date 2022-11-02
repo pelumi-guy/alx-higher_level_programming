@@ -9,11 +9,11 @@ class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
         """initializes instance of square"""
-        if type(size) !=  int:
+        if type(size) != int:
             raise TypeError('width must be an integer')
         if size <= 0:
             raise ValueError('width must be > 0')
-        if type(x) !=  int:
+        if type(x) != int:
             raise TypeError('x must be an integer')
         if x < 0:
             raise ValueError('x must be >= 0')
@@ -32,7 +32,7 @@ class Square(Rectangle):
         it returns  a string with format:
         [Square] (<id>) <x>/<y> - <size>"""
         return f"[Square] ({self.id}) {self.x}/{self.y}" + \
-                           f" - {self.size}"
+               f" - {self.size}"
 
     @property
     def size(self):

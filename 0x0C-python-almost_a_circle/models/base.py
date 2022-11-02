@@ -6,7 +6,6 @@ import os
 import turtle
 
 
-
 class Base:
     """base for this project. The goal of it is to
     manage id attribute in children classes and to avoid
@@ -18,7 +17,7 @@ class Base:
         """initializes this base class
         Args:
             @id: id of object"""
-        if id == None:
+        if id is None:
             type(self).__nb_objects += 1
             self.id = type(self).__nb_objects
         else:
@@ -114,9 +113,9 @@ class Base:
                 data = []
                 header = None
                 if cls.__name__ == 'Rectangle':
-                    header = ['id', 'width', 'height','x', 'y']
+                    header = ['id', 'width', 'height', 'x', 'y']
                 elif cls.__name__ == 'Square':
-                    header = ['id', 'size','x', 'y']
+                    header = ['id', 'size', 'x', 'y']
                 for obj in dict_list:
                     row = []
                     row.append(obj['id'])
