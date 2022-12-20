@@ -7,3 +7,4 @@ function add (a, b) {
 }
 
 console.log(add(parseInt(a), parseInt(b)));
+

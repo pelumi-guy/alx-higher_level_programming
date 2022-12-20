@@ -15,3 +15,4 @@ if (!parseInt(x)) {
     console.log(myVar);
   }
 }
+
