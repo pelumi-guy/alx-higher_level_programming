@@ -17,7 +17,7 @@ if (
   const stream = fs.createWriteStream(fileC);
 
   stream.write(fileAContent);
-  stream.write('\n');
+  // stream.write('\n');
   stream.write(fileBContent);
   stream.end();
 }
