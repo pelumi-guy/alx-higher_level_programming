@@ -1,25 +1,14 @@
 #!/usr/bin/python3
-
-def rec_find_peak(list_of_integers, n, left, right):
-     
-    if n == 0:
-        return None
-
-    mid = left + (right - left) // 2
-
-    #if ((mid == 0 or list_of_integers[mid - 1] <= list_of_integers[mid])
-    #       and (mid == n - 1 or list_of_integers[mid + 1] <= list_of_integers[mid])):
-        
-    if (mid < n - 1 and list_of_integers[mid + 1] > list_of_integers[mid]):
-        return rec_find_peak(list_of_integers, n, mid + 1, right)
-
-    elif (mid > 0 and list_of_integers[mid - 1] > list_of_integers[mid]):
-        return rec_find_peak(list_of_integers, n, left, mid - 1)
-    
-    else:
-        return (list_of_integers[mid])
-
+"""
+A function that finds a peak in a list of unsorted integers.
+"""
 
 def find_peak(list_of_integers):
-    n = len(list_of_integers)
-    return rec_find_peak(list_of_integers, n, 0, n - 1)
+    """
+    Finds peak in a list of unsorted integers
+    """
+    if len(list_of_integers) == 0:
+        return None
+
+    list_set = set(list_of_integers)
+    return max(list_set)
