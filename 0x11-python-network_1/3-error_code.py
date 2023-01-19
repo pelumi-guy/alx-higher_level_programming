@@ -14,4 +14,4 @@ if __name__ == '__main__':
             print(str(response.read(), 'UTF-8'))
     except URLError as e:
         if hasattr(e, 'code'):
-            print('Error code: ', e.code)
+            print('Error code: {}'.format(e.code))
