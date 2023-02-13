@@ -21,9 +21,11 @@ try {
     .then((res) => {
       const characters = res.characters;
       try {
-        for (let i = 0; i < characters.length; i++) {
-          sendRequest(characters[i])
+        let i = 0, character = characters[0];
+        while (i < characters.length) {
+          sendRequest(character)
             .then((person) => l(person.name));
+            character = characters[i++];
         }
       } catch (err) {
         l(err);
